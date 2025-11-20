@@ -47,11 +47,9 @@ The dataset simulates 5,000 users with random events:
 
 ---
 
-## Installation ⚙️
-
-1. Clone the repository:
 
 ```bash
 git clone https://github.com/masciavelucasv/ab-testing-analysis.git
 cd ab-testing-analysis
+
 
