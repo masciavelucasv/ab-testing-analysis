@@ -52,5 +52,6 @@ The dataset simulates 5,000 users with random events:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/ab-testing-analysis.git
+git clone https://github.com/masciavelucasv/ab-testing-analysis.git
 cd ab-testing-analysis
+
