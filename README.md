@@ -1,55 +1,88 @@
-# A/B Testing Analysis 📊
+📊 A/B Testing Analysis
 
-This repository demonstrates a **complete A/B testing workflow** using a synthetic dataset of user events. It allows comparison of **Variant A and Variant B** in terms of **conversion rate** and **revenue**, both **overall** and **per marketing channel**.  
+This repository showcases a complete end-to-end A/B testing workflow applied to a synthetic dataset of user events.
+The goal is to evaluate the performance of Variant A vs Variant B in terms of conversion, revenue, and engagement, both overall and across different marketing channels.
 
-Key features:
+The project demonstrates how to clean experimental data, generate user-level metrics, perform inferential statistical tests, and visualize results to support data-driven decision making.
 
-- 📈 User-level aggregation of metrics (conversion, revenue, logins)  
-- 📊 Overall and channel-level statistical analysis  
-- 🔬 Z-test for conversion rate and t-test for revenue  
-- 📉 Visualizations for quick interpretation  
-- 🏆 Identification of the “winning” variant per metric and channel
+📂 Dataset
 
----
+The dataset (my_data.csv) simulates 5,000 unique users, each generating multiple events.
+It includes a mixture of behavioral and transactional signals to mimic a real product analytics environment.
 
-## Dataset 🗂️
+Columns
+Column	Description
+user_id	Unique anonymous user identifier
+event	User activity (signup, login, purchase, share, feature_use)
+timestamp	Event time
+channel	Marketing acquisition channel (email, social, ads, organic)
+variant	A/B assignment — Variant A or B
+revenue	Revenue attributed to purchase events
+🚀 Project Workflow
+1. User-Level Aggregation
 
-The dataset simulates 5,000 users with random events:
+Each user is summarized with:
 
-- **Columns:**
-  - `user_id` 🆔  
-  - `event` 🎯 (`signup`, `login`, `purchase`, `share`, `feature_use`)  
-  - `timestamp` ⏰  
-  - `channel` 📣 (`email`, `social`, `ads`, `organic`)  
-  - `variant` 🅰️🅱️  
-  - `revenue` 💰
+converted → whether they purchased at least once
 
-- **File:** `my_data.csv` (or generate using `generate_dataset.py`)
+total_revenue → sum of all revenue events
 
----
+num_logins → login frequency
 
-## Features / Workflow 🚀
+This enables a clean comparison between variants at the user level.
 
-### Overall A/B Test
-- Aggregates user-level metrics:
-  - `converted` ✅ (made at least one purchase)  
-  - `total_revenue` 💵  
-  - `num_logins` 🔑  
-- Calculates **conversion rate** and **average revenue** per variant  
-- Performs **z-test** (conversion) and **t-test** (revenue)  
-- Visualizes results with bar charts 📊
+2. Overall A/B Test
+Metrics computed per variant:
 
-### Channel-Level Analysis
-- Aggregates metrics per user **per channel** 📡  
-- Computes conversion and revenue per variant per channel  
-- Performs statistical tests and identifies **winning variants** 🏆  
-- Generates channel-level visualizations
+Conversion rate
 
----
+Average revenue per user
 
+Number of users in each group
 
-```bash
-git clone https://github.com/masciavelucasv/ab-testing-analysis.git
-cd ab-testing-analysis
+Statistical tests:
 
+Two-sample z-test → for conversion rates
 
+Two-sample t-test → for revenue differences
+
+Visualizations:
+
+Conversion rate comparison
+
+Average revenue comparison
+
+These help quickly identify which variant performs better.
+
+3. Channel-Level Analysis
+
+Users are further segmented by acquisition channel:
+
+email
+
+social
+
+ads
+
+organic
+
+For each channel and each variant:
+
+Conversion rate
+
+Average revenue
+
+Number of active users
+
+Statistical tests evaluate whether performance differences are significant.
+
+A “winner” is identified per channel based on both conversion and revenue outcomes.
+
+Channel Visualizations:
+Conversion rate per channel
+
+Revenue per channel
+
+Conversion rate per channel
+
+Revenue per channel
