@@ -15,6 +15,7 @@ from scipy.stats import ttest_ind
 import matplotlib.pyplot as plt
 
 # Load dataset
+my_data.csv
 
 # ---------------------------
 # 2. User-level A/B test
@@ -131,4 +132,5 @@ plt.ylabel('Average Revenue')
 plt.title('Average Revenue by Variant per Channel')
 plt.legend()
 plt.show()
+
 
